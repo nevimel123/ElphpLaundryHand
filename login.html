@@ -1,214 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LaundryHand - Login</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
-            min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
-        }
-        
-        .bubble {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        .bubble:nth-child(odd) {
-            animation-delay: -2s;
-        }
-        
-        .bubble:nth-child(even) {
-            animation-delay: -4s;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        .bubble-1 { width: 80px; height: 80px; top: 20%; left: 10%; }
-        .bubble-2 { width: 120px; height: 120px; top: 60%; left: 5%; }
-        .bubble-3 { width: 60px; height: 60px; top: 40%; right: 15%; }
-        .bubble-4 { width: 100px; height: 100px; top: 70%; right: 20%; }
-        
-        .navbar {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-        }
-        
-        .navbar-brand {
-            font-weight: bold;
-            font-size: 1.5rem;
-            color: white !important;
-        }
-        
-        .navbar-nav .nav-link {
-            color: white !important;
-            margin: 0 10px;
-        }
-        
-        .navbar-nav .nav-link:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 5px;
-        }
-        
-        .form-container {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-            margin-top: 100px;
-            position: relative;
-            z-index: 10;
-            max-width: 450px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .form-control {
-            border-radius: 10px;
-            border: 2px solid #e9ecef;
-            padding: 12px 15px;
-            transition: all 0.3s ease;
-        }
-        
-        .form-control:focus {
-            border-color: #4a90e2;
-            box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.25);
-        }
-        
-        .btn-primary {
-            background: #4a90e2;
-            border: none;
-            border-radius: 10px;
-            padding: 12px 30px;
-            font-weight: 600;
-            width: 100%;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary:hover {
-            background: #357abd;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(74, 144, 226, 0.3);
-        }
-        
-        .form-label {
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 8px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LaundryHand - Login</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome for T-shirt icon -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+      body {
+          background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+          min-height: 100vh;
+          position: relative;
+          overflow-x: hidden;
+      }
+      .bubble {
+          position: absolute;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.1);
+          animation: float 6s ease-in-out infinite;
+      }
+      .bubble:nth-child(odd) { animation-delay: -2s; }
+      .bubble:nth-child(even) { animation-delay: -4s; }
+      @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-20px); }
+      }
+      .bubble-1 { width: 80px; height: 80px; top: 20%; left: 10%; }
+      .bubble-2 { width: 120px; height: 120px; top: 60%; left: 5%; }
+      .bubble-3 { width: 60px; height: 60px; top: 40%; right: 15%; }
+      .bubble-4 { width: 100px; height: 100px; top: 70%; right: 20%; }
+
+      .navbar {
+          background: rgba(255, 255, 255, 0.1);
+          backdrop-filter: blur(10px);
+      }
+      .navbar-brand {
+          font-weight: bold;
+          font-size: 1.5rem;
+          color: white !important;
+      }
+      .navbar-nav .nav-link {
+          color: white !important;
+          margin: 0 10px;
+      }
+      .navbar-nav .nav-link:hover {
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 5px;
+      }
+      .form-container {
+          background: rgba(255, 255, 255, 0.95);
+          border-radius: 20px;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+          backdrop-filter: blur(10px);
+          margin-top: 100px;
+          position: relative;
+          z-index: 10;
+          max-width: 450px;
+          margin-left: auto;
+          margin-right: auto;
+      }
+      .form-control {
+          border-radius: 10px;
+          border: 2px solid #e9ecef;
+          padding: 12px 15px;
+          transition: all 0.3s ease;
+      }
+      .form-control:focus {
+          border-color: #4a90e2;
+          box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.25);
+      }
+      .btn-primary {
+          background: #4a90e2;
+          border: none;
+          border-radius: 10px;
+          padding: 12px 30px;
+          font-weight: 600;
+          width: 100%;
+          transition: all 0.3s ease;
+      }
+      .btn-primary:hover {
+          background: #357abd;
+          transform: translateY(-2px);
+          box-shadow: 0 8px 20px rgba(74, 144, 226, 0.3);
+      }
+      .form-label {
+          font-weight: 600;
+          color: #333;
+          margin-bottom: 8px;
+      }
+  </style>
 </head>
 <body>
-    <!-- Floating Bubbles -->
-    <div class="bubble bubble-1"></div>
-    <div class="bubble bubble-2"></div>
-    <div class="bubble bubble-3"></div>
-    <div class="bubble bubble-4"></div>
+  <!-- Floating Bubbles -->
+  <div class="bubble bubble-1"></div>
+  <div class="bubble bubble-2"></div>
+  <div class="bubble bubble-3"></div>
+  <div class="bubble bubble-4"></div>
 
-    <!-- Navigation -->
-   <!-- Navbar -->
-<nav class="navbar navbar-expand-lg">
-    <div class="container">
-        <a class="navbar-brand" href="landing.html">LaundryHand</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="landing.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="register.html">Register</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="login.html">Login</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-
-    <!-- Login Form -->
-    <div class="container">
-        <div class="form-container p-5">
-            <h2 class="text-center text-primary fw-bold mb-4">Login</h2>
-<form id="loginForm" onsubmit="return false;">
-  <div class="mb-3">
-    <input type="email" name="email" class="form-control" placeholder="Email" required>
-  </div>
- <div class="mb-3">
-  <input type="password" name="password" class="form-control" placeholder="Password" required>
-  <div id="errorMessage" class="text-danger small mt-1"></div>
-</div>
-
-  <div class="mb-4">
-    <label for="account_type" class="form-label text-muted">Account Type</label>
-    <select class="form-select rounded-pill" id="account_type" name="account_type">
-      <option value="customer">Customer</option>
-      <option value="admin">Admin</option>
-    </select>
-  </div>
-  <div class="options d-flex justify-content-between align-items-center mb-3">
-              <label class="remember mb-0">
-                <input type="checkbox" name="remember">
-                <span>Remember me</span>
-              </label>
-              <p class="text-right mb-0"><a href="forgotpassword.html">Forgot Password?</a></p>
-            </div>
-<button type="submit" id="loginBtn" class="btn btn-primary w-100">Login</button>
-            <p class="text-center mt-3">Don't have an account? <a href="register.html">Register</a></p>
- 
-        </div>
-
-        </form>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+      <div class="container">
+          <!-- Added T-shirt icon -->
+          <a class="navbar-brand" href="landing.html">
+              <i class="fas fa-tshirt me-2"></i>LaundryHand
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                  <li class="nav-item">
+                      <a class="nav-link" href="landing.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="register.html">Register</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link active" href="login.html">Login</a>
+                  </li>
+              </ul>
+          </div>
       </div>
-    </div>
+  </nav>
+
+  <!-- Login Form -->
+  <div class="container">
+      <div class="form-container p-5">
+          <h2 class="text-center text-primary fw-bold mb-4">Login</h2>
+          <form id="loginForm" onsubmit="return false;">
+              <div class="mb-3">
+                  <input type="email" name="email" class="form-control" placeholder="Email" required>
+              </div>
+              <div class="mb-3">
+                  <input type="password" name="password" class="form-control" placeholder="Password" required>
+                  <div id="errorMessage" class="text-danger small mt-1"></div>
+              </div>
+              <div class="mb-4">
+                  <label for="account_type" class="form-label text-muted">Account Type</label>
+                  <select class="form-select rounded-pill" id="account_type" name="account_type">
+                      <option value="customer">Customer</option>
+                      <option value="admin">Admin</option>
+                  </select>
+              </div>
+              <div class="options d-flex justify-content-between align-items-center mb-3">
+                  <label class="remember mb-0">
+                      <input type="checkbox" name="remember">
+                      <span>Remember me</span>
+                  </label>
+                  <p class="text-right mb-0"><a href="forgotpassword.html">Forgot Password?</a></p>
+              </div>
+              <button type="submit" id="loginBtn" class="btn btn-primary w-100">Login</button>
+              <p class="text-center mt-3">Don't have an account? <a href="register.html">Register</a></p>
+          </form>
+      </div>
   </div>
-</div>
-<script>
-document.getElementById("loginBtn").addEventListener("click", function (event) {
-  event.preventDefault(); // stop form from submitting to PHP
 
-  const emailInput = document.querySelector('input[name="email"]');
-  const passwordInput = document.querySelector('input[name="password"]');
-  const accountTypeSelect = document.getElementById("account_type");
-const errorMessage = document.getElementById("errorMessage");
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+  <script>
+  document.getElementById("loginBtn").addEventListener("click", function (event) {
+    event.preventDefault(); // stop form from submitting
 
-  const email = emailInput.value.trim();
-  const password = passwordInput.value.trim();
-  const accountType = accountTypeSelect.value;
+    const emailInput = document.querySelector('input[name="email"]');
+    const passwordInput = document.querySelector('input[name="password"]');
+    const accountTypeSelect = document.getElementById("account_type");
+    const errorMessage = document.getElementById("errorMessage");
 
-  errorMessage.textContent = "";
+    const email = emailInput.value.trim();
+    const password = passwordInput.value.trim();
+    const accountType = accountTypeSelect.value;
 
-  let users = JSON.parse(localStorage.getItem("users")) || [];
-  const user = users.find(u => u.email === email && u.password === password && u.accountType === accountType);
+    errorMessage.textContent = "";
 
-  if (!user) {
-    errorMessage.textContent = "Invalid credentials!";
-    return;
-  }
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+    const user = users.find(u => u.email === email && u.password === password && u.accountType === accountType);
 
-  // Save logged-in user
-  localStorage.setItem("loggedInUser", JSON.stringify(user));
+    if (!user) {
+      errorMessage.textContent = "Invalid credentials!";
+      return;
+    }
 
-  // Redirect
-  if (accountType === "admin") {
-    window.location.href = "admindashboard.html";
-  } else {
-    window.location.href = "customerdashboard.html";
-  }
-});
+    // Save logged-in user
+    localStorage.setItem("loggedInUser", JSON.stringify(user));
 
-</script>
-
+    // Redirect
+    if (accountType === "admin") {
+      window.location.href = "admindashboard.html";
+    } else {
+      window.location.href = "customerdashboard.html";
+    }
+  });
+  </script>
+</body>
+</html>
