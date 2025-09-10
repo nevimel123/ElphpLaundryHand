@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LaundryHand - Create Account</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+    .form-container {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      margin-top: 50px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="form-container">
+      <h2 class="text-center text-primary fw-bold mb-4">Create Account</h2>
+      <form id="registerForm">
+        <div class="mb-3">
+          <label for="firstname" class="form-label">Firstname</label>
+          <input type="text" id="firstname" name="firstname" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="lastname" class="form-label">Lastname</label>
+          <input type="text" id="lastname" name="lastname" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" id="username" name="username" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" id="password" name="password" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="confirmpassword" class="form-label">Confirm Password</label>
+          <input type="password" id="confirmpassword" name="confirmpassword" class="form-control" required>
+          <div id="errorMessage" class="text-danger small mt-1"></div>
+        </div>
+        <div class="mb-4">
+          <label for="accountType" class="form-label">Account Type</label>
+          <select class="form-select" id="accountType">
+            <option value="customer" selected>Customer</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Register</button>
+        <p class="text-center mt-3">Already have an account? <a href="login.html">Login</a></p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("registerForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const firstname = document.getElementById("firstname").value.trim();
+      const lastname = document.getElementById("lastname").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const confirmPassword = document.getElementById("confirmpassword").value.trim();
+      const accountType = document.getElementById("accountType").value;
+      const errorMessage = document.getElementById("errorMessage");
+
+      errorMessage.textContent = "";
+
+      // Basic validation
+      if (password !== confirmPassword) {
+        errorMessage.textContent = "Passwords do not match!";
+        return;
+      }
+
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        errorMessage.textContent = "Please enter a valid email.";
+        return;
+      }
+
+      // Save user to localStorage
+      const user = { firstname, lastname, email, username, password, accountType };
+      let users = JSON.parse(localStorage.getItem("users")) || [];
+      users.push(user);
+      localStorage.setItem("users", JSON.stringify(users));
+
+      alert("Registration successful! Please login.");
+      window.location.href = "login.html";
+    });
+  </script>
+</body>
+</html>
