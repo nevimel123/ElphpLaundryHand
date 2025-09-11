@@ -126,7 +126,7 @@
     // Load orders from localStorage or use sample data
     let orders = JSON.parse(localStorage.getItem("orders")) || [
       { id: "LH1001", customer: "John Doe", weight: 3.5, soap: "Tide", fabcon: "Downy", status: "Pending" },
-      { id: "LH1002", customer: "Jane Smith", weight: 5.2, soap: "Ariel", fabcon: "Comfort", status: "Washing" }
+      { id: "LH1002", customer: "Jane Smith", weight: 5.2, soap: "Ariel", fabcon: "Comfort", status: "In-Progress" }
     ];
 
     function saveOrders() {
@@ -169,7 +169,7 @@
           statusCell.innerHTML = `
             <select class="form-select form-select-sm status-select">
               <option value="Pending">Pending</option>
-              <option value="Washing">Washing</option>
+              <option value="In-Progress">In-Progress</option>
               <option value="Ready to pick up">Ready to pick up</option>
               <option value="Picked up">Picked up</option>
             </select>
